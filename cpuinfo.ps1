@@ -56,7 +56,7 @@ $secoes = [ordered]@{
 # Exibição Formatada no Terminal
 Clear-Host
 Write-Host "==================================================================" -ForegroundColor Cyan
-Write-Host "             INFORMAÇÕES DETALHADAS DA CPU (lscpu)                " -ForegroundColor Cyan
+Write-Host "             INFORMAÇÕES DETALHADAS DA CPU                        " -ForegroundColor Cyan
 Write-Host "==================================================================" -ForegroundColor Cyan
 
 foreach ($titulo in $secoes.Keys) {
