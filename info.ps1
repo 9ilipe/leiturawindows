@@ -59,7 +59,7 @@ Print-Item "Versão da BIOS" "$($bios.SMBIOSBIOSVersion) ($biosDate)"
 # ------------------------------------------------------------------------------
 # 2. RESUMO SINTÉTICO DO HARDWARE
 # ------------------------------------------------------------------------------
-Print-Header "2. Resumo Sintético do Hardware (lshw -short)"
+Print-Header "2. Resumo Sintético do Hardware"
 
 $shortTree = [System.Collections.Generic.List[PSObject]]::new()
 
@@ -180,7 +180,7 @@ if ($gpus.Count -eq 0) {
 # ------------------------------------------------------------------------------
 # 4. DETALHAMENTO DE MEMÓRIA RAM
 # ------------------------------------------------------------------------------
-Print-Header "4. Memória RAM Detalhada (lsmem / lsram)"
+Print-Header "4. Memória RAM Detalhada"
 
 $ramSlots = @(Get-CimInstance Win32_PhysicalMemory -ErrorAction SilentlyContinue)
 
@@ -236,7 +236,7 @@ foreach ($slot in $ramSlots) {
 # ------------------------------------------------------------------------------
 # 5. DISCOS E ARMAZENAMENTO FÍSICO
 # ------------------------------------------------------------------------------
-Print-Header "5. Discos e Armazenamento Físico (lsblk)"
+Print-Header "5. Discos e Armazenamento Físico"
 
 $pDisks   = @(Get-PhysicalDisk -ErrorAction SilentlyContinue)
 $wmiDisks = @(Get-CimInstance Win32_DiskDrive -ErrorAction SilentlyContinue)
@@ -301,7 +301,7 @@ foreach ($disk in $pDisks) {
 # ------------------------------------------------------------------------------
 # 6. USO DO ESPAÇO EM DISCO / SISTEMA DE ARQUIVOS
 # ------------------------------------------------------------------------------
-Print-Header "6. Uso do Espaço em Disco / Sistema de Arquivos (df -hT)"
+Print-Header "6. Uso do Espaço em Disco / Sistema de Arquivos"
 
 $logicalDisks = @(Get-CimInstance Win32_LogicalDisk -Filter "DriveType = 2 or DriveType = 3 or DriveType = 4" -ErrorAction SilentlyContinue)
 
@@ -373,7 +373,7 @@ if ($netConfigs.Count -eq 0) {
 # ------------------------------------------------------------------------------
 # 8. DISPOSITIVOS E PLACAS PCI / PCIE
 # ------------------------------------------------------------------------------
-Print-Header "8. Dispositivos e Placas PCI / PCIe (lspci)"
+Print-Header "8. Dispositivos e Placas PCI / PCIe"
 
 $pciDevices = @(Get-CimInstance Win32_PnPEntity -ErrorAction SilentlyContinue | 
     Where-Object { 
@@ -428,7 +428,7 @@ Write-Host "Total de Dispositivos PCI Ativos: $($pciIndex - 1)" -ForegroundColor
 # ------------------------------------------------------------------------------
 # 9. DISPOSITIVOS USB ATIVOS
 # ------------------------------------------------------------------------------
-Print-Header "9. Dispositivos USB Ativos (lsusb)"
+Print-Header "9. Dispositivos USB Ativos"
 
 $usbDevices = @(Get-CimInstance Win32_PnPEntity -ErrorAction SilentlyContinue | 
     Where-Object { 
