@@ -57,7 +57,7 @@ Print-Item "Cache L2 / L3" "$([math]::Round($cpu.L2CacheSize / 1KB, 2)) MB / $([
 Print-Item "Versão da BIOS" "$($bios.SMBIOSBIOSVersion) ($biosDate)"
 
 # ------------------------------------------------------------------------------
-# 2. RESUMO SINTÉTICO DO HARDWARE (lshw -short)
+# 2. RESUMO SINTÉTICO DO HARDWARE
 # ------------------------------------------------------------------------------
 Print-Header "2. Resumo Sintético do Hardware (lshw -short)"
 
@@ -234,7 +234,7 @@ foreach ($slot in $ramSlots) {
 }
 
 # ------------------------------------------------------------------------------
-# 5. DISCOS E ARMAZENAMENTO FÍSICO (lsblk)
+# 5. DISCOS E ARMAZENAMENTO FÍSICO
 # ------------------------------------------------------------------------------
 Print-Header "5. Discos e Armazenamento Físico (lsblk)"
 
@@ -299,7 +299,7 @@ foreach ($disk in $pDisks) {
 }
 
 # ------------------------------------------------------------------------------
-# 6. USO DO ESPAÇO EM DISCO / SISTEMA DE ARQUIVOS (df -hT)
+# 6. USO DO ESPAÇO EM DISCO / SISTEMA DE ARQUIVOS
 # ------------------------------------------------------------------------------
 Print-Header "6. Uso do Espaço em Disco / Sistema de Arquivos (df -hT)"
 
@@ -371,7 +371,7 @@ if ($netConfigs.Count -eq 0) {
 }
 
 # ------------------------------------------------------------------------------
-# 8. DISPOSITIVOS E PLACAS PCI / PCIE (lspci)
+# 8. DISPOSITIVOS E PLACAS PCI / PCIE
 # ------------------------------------------------------------------------------
 Print-Header "8. Dispositivos e Placas PCI / PCIe (lspci)"
 
@@ -426,7 +426,7 @@ foreach ($dev in $pciDevices) {
 Write-Host "Total de Dispositivos PCI Ativos: $($pciIndex - 1)" -ForegroundColor Gray
 
 # ------------------------------------------------------------------------------
-# 9. DISPOSITIVOS USB ATIVOS (lsusb)
+# 9. DISPOSITIVOS USB ATIVOS
 # ------------------------------------------------------------------------------
 Print-Header "9. Dispositivos USB Ativos (lsusb)"
 
